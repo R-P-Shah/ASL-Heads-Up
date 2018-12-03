@@ -12,10 +12,14 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
       {{item.title}}
-      <div class="item-note" slot="end">
+
+      <div class="item-note">
         {{item.note}}
+      </div>
+
+      <div class="play-now" slot="end">
+        <a href="">Play Now!</a>
       </div>
     </ion-item>
   </ion-list>
