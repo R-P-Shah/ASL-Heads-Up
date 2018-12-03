@@ -1,6 +1,8 @@
 {
   "name": "ASL-Heads-Up",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "88c2924b"
 }
