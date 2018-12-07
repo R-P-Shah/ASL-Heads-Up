@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Settings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>Timer Length: </ion-label>
+    <ion-input name="timer-setting"  [(ngModel)]="timer.length" placeholder="{{timer.length}}" (input) = updateTimer([+value]);></ion-input>
+    <ion-label>seconds</ion-label>
+  </ion-item>
+  
+
+  <ion-item>
+       <h1>{{timer.length}} seconds</h1>
+  </ion-item>
+
+
+</ion-content>
