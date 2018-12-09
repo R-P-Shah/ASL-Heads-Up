@@ -15,7 +15,7 @@ export class HttpService {
     this.http.get('https://dog.ceo/api/breeds/list/all', {}, {})
     .then(
       data => {
-        this.headers = data.headers;
+        this.headers = data.headers[5][0][0];
       }
     ).catch(error=>{
         this.headers = error.headers;
