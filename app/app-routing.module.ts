@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: './list/list.module#ListPageModule'
   },
   { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
-  { path: 'Game', loadChildren: './game/game.module#GamePageModule' }
+  { path: 'game', loadChildren: './game/game.module#GamePageModule' }
 ];
 
 @NgModule({
