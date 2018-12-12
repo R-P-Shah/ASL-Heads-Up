@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DifficultyService } from '../difficulty.service';
 
 @Component({
   selector: 'app-game',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamePage implements OnInit {
 
-  constructor() { }
+  private difficulty: string;
+  private description: string;
+  private apiLink: string;
+  
+  constructor(ds: DifficultyService) {
+
+   }
 
   ngOnInit() {
   }
