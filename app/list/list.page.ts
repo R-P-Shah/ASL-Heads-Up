@@ -18,8 +18,8 @@ export class ListPage implements OnInit {
     }
   ];
   public items: Array<{ title: string; note: string;}> = [];
+  
   constructor() {
-    
     for (let i = 0; i < this.gameModes.length; i++) {
       this.items.push({
         title: this.gameModes[i].description,
@@ -27,8 +27,6 @@ export class ListPage implements OnInit {
       });
     }
   }
-
-  
 
   ngOnInit() {
   }

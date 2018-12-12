@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component';
-
 
 @Component({
   selector: 'app-settings',
@@ -9,12 +7,11 @@ import { AppComponent } from '../app.component';
 })
 export class SettingsPage implements OnInit {
 
-  private timer;
-  constructor() {
-    this.timer = 60;
-  }
+  public timer = 60;
+
+  constructor() { }
 
   ngOnInit() {
   }
-  
+
 }

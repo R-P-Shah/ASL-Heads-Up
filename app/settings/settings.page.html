@@ -13,13 +13,13 @@
 
   <ion-item>
     <ion-label>Timer Length: </ion-label>
-    <ion-input name="timer-setting"  [(ngModel)]="timer.length" placeholder="{{timer.length}}" (input) = updateTimer([+value]);></ion-input>
+    <ion-input name="timer-setting" placeholder="{{timer}}" [ngModel]="timer"></ion-input>
     <ion-label>seconds</ion-label>
   </ion-item>
   
 
   <ion-item>
-       <h1>{{timer.length}} seconds</h1>
+       <h1>{{timer}} seconds</h1>
   </ion-item>
 
 
