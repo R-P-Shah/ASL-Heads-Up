@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  private selectedItem: any;
+  //private selectedItem: any;
+  public timer = 60;
   private gameModes = [
     {
       difficulty: 'Easy',
@@ -17,13 +18,13 @@ export class ListPage implements OnInit {
       description: 'Country Capitols'
     }
   ];
-  public items: Array<{ title: string; note: string;}> = [];
+  public items: Array<{ description: string; difficulty: string;}> = [];
   
   constructor() {
     for (let i = 0; i < this.gameModes.length; i++) {
       this.items.push({
-        title: this.gameModes[i].description,
-        note: this.gameModes[i].difficulty
+        description: this.gameModes[i].description,
+        difficulty: this.gameModes[i].difficulty
       });
     }
   }

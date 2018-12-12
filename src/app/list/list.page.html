@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      List
+      Game Select
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,10 +12,10 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of items">
-      {{item.title}}
+      {{item.difficulty}}
 
       <div class="item-note">
-        {{item.note}}
+        {{item.description}}
       </div>
 
       <div class="play-now" slot="end">
@@ -24,8 +24,12 @@
     </ion-item>
   </ion-list>
 
+
+
   <ion-item>
-    <h1>Timer Length: <span>{{timer}}</span></h1>
+    <ion-label>Timer Length: </ion-label>
+    <ion-input name="timer-setting" placeholder="{{timer}}" [ngModel]="timer"></ion-input>
+    <ion-label>seconds</ion-label>
   </ion-item>
 
 
