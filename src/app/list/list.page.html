@@ -13,13 +13,12 @@
   <ion-list>
     <ion-item *ngFor="let item of items">
       {{item.difficulty}}
-
       <div class="item-note">
         {{item.description}}
       </div>
 
       <div class="play-now" slot="end">
-        <a routerLink="/game" (click) = >Play Now!</a>
+        <a routerLink="/game" (click)= "setGame('test', 'test', 'test')" >Play Now!</a>
       </div>
     </ion-item>
   </ion-list>

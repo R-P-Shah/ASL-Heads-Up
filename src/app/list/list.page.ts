@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DifficultyService } from '../difficulty.service';
+
 
 @Component({
   selector: 'app-list',
@@ -9,7 +9,7 @@ import { DifficultyService } from '../difficulty.service';
 export class ListPage implements OnInit {
   //private selectedItem: any;
   public timer = 60;
-  gameSetup: DifficultyService;
+
 
   private gameModes = [
     {
@@ -23,7 +23,7 @@ export class ListPage implements OnInit {
   ];
   public items: Array<{ description: string; difficulty: string;}> = [];
   
-  constructor(ds: DifficultyService) {
+  constructor() {
     for (let i = 0; i < this.gameModes.length; i++) {
       this.items.push({
         description: this.gameModes[i].description,
@@ -32,9 +32,7 @@ export class ListPage implements OnInit {
     }
   }
 
-  setGame(diff: string, desc: string, api: string){
-    this.gameSetup
-  }
+
 
   ngOnInit() {
   }
