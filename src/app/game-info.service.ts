@@ -14,12 +14,14 @@ export class GameInfoService {
     {
       difficulty: "Easy",
       description: "Dog Breeds",
-      api: "Dogs"
+      api: "Dogs",
+      apiCall: function call() {}
     },
     {
       difficulty: "Medium",
       description: "Country Capitals",
-      api: "Countries"
+      api: "Countries",
+      apiCall: function call() {console.log("test");}
     }
   ];
 

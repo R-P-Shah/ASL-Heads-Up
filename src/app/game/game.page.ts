@@ -12,6 +12,7 @@ export class GamePage implements OnInit {
   //Variables needed to play the game
   gameMode = {};
   timer;
+  test = "Update?";
   //injection for the gameinfoservice and the activated route to send info
   constructor(private route: ActivatedRoute, private gameInfo: GameInfoService) {}
 
@@ -26,5 +27,13 @@ export class GamePage implements OnInit {
     //get the timer information
     this.timer = this.route.snapshot.paramMap.get('timer');
   }
+
+
+
+  //this is bad practice I know, but I didn't have much time
+  //and Professor said to just get everything working without
+  //worry about abstraction and OOP
+
+  
 
 }
