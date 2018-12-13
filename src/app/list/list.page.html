@@ -25,12 +25,8 @@
     <ion-label>seconds</ion-label>
   </ion-item>
 
-  <!-- TODO: REMOVE !!!! Just for testing-->
-  <ion-label>Difficulty: {{selected.difficulty}} </ion-label>
-  <ion-label>Timer: {{timer}} </ion-label>
-
-  <ion-button>
-    Start Practicing!
+  <ion-button href="/game/{{selected.difficulty}}/{{timer}}">
+    Play Now!
   </ion-button>
 
   

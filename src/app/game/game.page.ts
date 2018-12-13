@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { GameInfoService } from '../game-info.service';
 
 @Component({
   selector: 'app-game',
@@ -8,17 +9,22 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GamePage implements OnInit {
 
-  
-
-  public difficulty = "easy";
-  
-  constructor(private route: ActivatedRoute) {
-
-  }
-
-  
+  //Variables needed to play the game
+  gameMode = {};
+  timer;
+  //injection for the gameinfoservice and the activated route to send info
+  constructor(private route: ActivatedRoute, private gameInfo: GameInfoService) {}
 
   ngOnInit() {
+    this.getGameMode();
+  }
+
+  getGameMode(){
+    const gameDiff = this.route.snapshot.paramMap.get('difficulty');
+    this.gameMode = this.gameInfo.getModeByDifficulty(gameDiff);
+    //now gameMode knows the game information
+    //get the timer information
+    this.timer = this.route.snapshot.paramMap.get('timer');
   }
 
 }
