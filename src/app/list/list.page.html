@@ -10,24 +10,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      {{item.difficulty}}
-      <div class="item-note">
-        {{item.description}}
-      </div>
-
-      <div class="play-now" slot="end">
-        <a routerLink="/game" (click)= "setGame('test', 'test', 'test')" >Play Now!</a>
-      </div>
-    </ion-item>
-  </ion-list>
-
+    
+  <ion-item>
+    <ion-label>Difficulty: </ion-label>
+      <ion-select [(ngModel)] = "tempDiff" value="Easy" ok-text="Okay" cancel-text="Dismiss">
+        <ion-select-option value="Easy">Easy</ion-select-option>
+        <ion-select-option value="Hard">Hard</ion-select-option>
+      </ion-select>
+  </ion-item> 
 
 
   <ion-item>
     <ion-label>Timer Length: </ion-label>
-    <ion-input name="timer-setting" placeholder="{{timer}}" [ngModel]="timer"></ion-input>
+    <ion-input name="timer-setting" placeholder="{{timer}}" [(ngModel)]="timer"></ion-input>
     <ion-label>seconds</ion-label>
   </ion-item>
 

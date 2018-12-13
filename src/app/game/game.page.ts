@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamePage implements OnInit {
 
-
+  public difficulty = "easy";
   
   constructor() {
 
