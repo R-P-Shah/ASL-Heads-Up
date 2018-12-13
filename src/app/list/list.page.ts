@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { GameInfoService } from '../game-info.service';
 
 @Component({
   selector: 'app-list',
@@ -11,32 +11,26 @@ export class ListPage implements OnInit {
   public timer = 60;
   public tempDiff;
 
-  private gameModes = [
-    {
-      difficulty: 'Easy',
-      description: 'Dog Breeds'
-    },
-    {
-      difficulty: 'Hard',
-      description: 'Country Capitols'
-    }
-  ];
+  private gameModes = [];
+
   public items: Array<{ description: string; difficulty: string;}> = [];
   
-  constructor() {
-    for (let i = 0; i < this.gameModes.length; i++) {
-      this.items.push({
-        description: this.gameModes[i].description,
-        difficulty: this.gameModes[i].difficulty
-      });
-    }
-  }
+  //inject game-info service
+  constructor(private games: GameInfoService) { }
 
 
 
 
 
   ngOnInit() {
+    this.gameModes = this.games.getGameModes();
+
+    for (let i = 0; i < this.gameModes.length; i++) {
+      this.items.push({
+        description: this.gameModes[i].description,
+        difficulty: this.gameModes[i].difficulty
+      });
+    }
   }
   // add back when alpha.4 is out
   // navigate(item) {

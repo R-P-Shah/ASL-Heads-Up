@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 //Service to communicate between list page and game page
-//passes along gameMode data
+//passes along gameMode data, kind of like the CalcApp exercise
 export class GameInfoService {
 
   //gameModes array holding all the different game difficulties
@@ -17,7 +17,7 @@ export class GameInfoService {
       api: "Dogs"
     },
     {
-      difficulty: "Hard",
+      difficulty: "Medium",
       description: "Country Capitals",
       api: "Countries"
     }
@@ -28,6 +28,13 @@ export class GameInfoService {
   //returns gameModes array
   getGameModes() {
     return this.gameModes;
+  }
+
+  //get the gameMode object in the gameModes array
+  //based on passed in difficulty 
+  //TODO: remove if unnecessary
+  getModeByDifficulty(difficulty: string) {
+    return this.gameModes.find(q => q.difficulty === difficulty);
   }
 
   
