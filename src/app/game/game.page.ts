@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -8,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamePage implements OnInit {
 
+  
+
   public difficulty = "easy";
   
-  constructor() {
+  constructor(private route: ActivatedRoute) {
 
-   }
+  }
 
   
 
