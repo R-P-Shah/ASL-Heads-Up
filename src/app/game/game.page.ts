@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GameInfoService } from '../game-info.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-game',
@@ -17,8 +18,13 @@ export class GamePage implements OnInit {
   //variables for getting the range of the API for calling
   min = 10;
   max = 11;
+  //score variables
+  correct = 0;
+  incorrect = 0;
+
   //injection for the gameinfoservice and the activated route to send info
-  constructor(private route: ActivatedRoute, private gameInfo: GameInfoService) {}
+  //injection for alert to let user know when game is over
+  constructor(private route: ActivatedRoute, private gameInfo: GameInfoService, public alertController: AlertController) {}
 
   ngOnInit() {
     this.getGameMode();
@@ -51,24 +57,46 @@ export class GamePage implements OnInit {
     xmlhttp.send();
   }
 
+  //wrapper function for the right/wrong buttons
+  right(){
+    this.correct++;
+    this.call(this.gameMode);
+  }
+
+  //wrapper function for the right/wrong buttons
+  wrong(){
+    this.incorrect++;
+    this.call(this.gameMode);
+  }
+
+  //controls the timer
   startTimer(seconds){
     this.currentTime = seconds;
     //timer runs for given time
     var interval = setInterval(() => {
-      console.log(this.currentTime);
       this.currentTime--;
-      if(this.currentTime <= 0 || this.quit===true){ //time's up!
+      if(this.currentTime <= 0 || this.quit===true){ //time's up or the user hit end the game
         clearInterval(interval);
-        console.log('Ding!');
+        //end of the game, send alert if timer is up ONLY
+        //(so if you go back the alert doesn't sneak up on you)
+        if(this.quit!== true){
+            this.presentAlert();
+        }
+        
       };
     }, 1000);
+
+    
   };
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'TIME IS UP!!',
+      message: 'CORRECT: ' + this.correct + ", \n INCORRECT: " + this.incorrect,
+      buttons: ['OK']
+    });
 
-  //this is bad practice I know, but I didn't have much time
-  //and Professor said to just get everything working without
-  //worry about abstraction and OOP
-
-  
+    await alert.present();
+  }
 
 }

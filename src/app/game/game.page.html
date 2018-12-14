@@ -25,9 +25,9 @@
   <div>
 
   </div>
-  <ion-button (click) = call(gameMode)>
-    Update
-  </ion-button>
+  <ion-button color = "danger" (click) = wrong() >Wrong</ion-button>
+  <ion-button color = "secondary" (click) = right()>Correct</ion-button>
 
+  <ion-label *ngIf="currentTime === 0">DONE!</ion-label> 
 
 </ion-content>
