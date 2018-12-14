@@ -10,7 +10,7 @@ export class ListPage implements OnInit {
   //private selectedItem: any;
   public gameModes = []; 
 
-  private selected = {};
+  public selected = {};
   public timer;
   
   //inject game-info service

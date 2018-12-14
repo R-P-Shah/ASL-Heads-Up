@@ -13,8 +13,8 @@
     
   <ion-item>
     <ion-label>Difficulty: </ion-label>
-      <ion-select placeholder="{{gameModes[0].difficulty}}" [(ngModel)] = "selected" ok-text="Okay" cancel-text="Dismiss">
-        <ion-select-option *ngFor="let item of gameModes" value="{{item.api}}">{{item.difficulty}}</ion-select-option>
+      <ion-select name="diff-setting" placeholder="{{gameModes[0].difficulty}}" [(ngModel)] = "selected" ok-text="Okay" cancel-text="Dismiss">
+        <ion-select-option *ngFor="let item of gameModes" [value] ="item">{{item.difficulty}}</ion-select-option>
       </ion-select>
   </ion-item> 
 
@@ -26,7 +26,7 @@
   </ion-item>
 
   <ion-button href="/game/{{selected.difficulty}}/{{timer}}">
-    Play Now!
+    {{selected.difficulty}}
   </ion-button>
 
   

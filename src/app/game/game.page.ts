@@ -13,6 +13,7 @@ export class GamePage implements OnInit {
   gameMode = {};
   timer;
   test = "Update?";
+  word;
   //injection for the gameinfoservice and the activated route to send info
   constructor(private route: ActivatedRoute, private gameInfo: GameInfoService) {}
 
@@ -26,6 +27,20 @@ export class GamePage implements OnInit {
     //now gameMode knows the game information
     //get the timer information
     this.timer = this.route.snapshot.paramMap.get('timer');
+  }
+
+  //call the selected API to get a random word from it
+  call(apiLink) {
+    var xmlhttp = new XMLHttpRequest();;
+    xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var word = JSON.parse(this.responseText);
+        document.getElementById('test').innerHTML = word;
+      }
+    };
+
+    xmlhttp.open("GET", apiLink, true);
+    xmlhttp.send();
   }
 
 
