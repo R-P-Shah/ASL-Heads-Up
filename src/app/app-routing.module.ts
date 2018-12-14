@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: './settings/settings.module#SettingsPageModule' 
   },
   { 
-    path: 'game/:difficulty/:timer', 
+    path: 'game/:difficulty/:timer/', 
     loadChildren: './game/game.module#GamePageModule' 
   }
 ];

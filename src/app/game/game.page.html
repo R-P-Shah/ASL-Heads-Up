@@ -1,22 +1,23 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button color="danger" routerLink="/list">End Game</ion-button>
+      <ion-button color="danger" routerLink="/list">End</ion-button>
     </ion-buttons>
     <ion-title>
-      Head's Up! {{gameMode.difficulty}}
+      Head's Up! {{gameMode.difficulty}} Mode
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
 
-  <ion-label>
-    {{timer}}
+  <ion-label id="test">
+    API: 
   </ion-label>
 
-  <ion-label id="test">
-    Word: 
-  </ion-label>
+  <ion-button (click) = call(gameMode.api)>
+    Update
+  </ion-button>
+
 
 </ion-content>

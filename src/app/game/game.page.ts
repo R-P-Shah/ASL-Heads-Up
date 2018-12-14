@@ -12,8 +12,9 @@ export class GamePage implements OnInit {
   //Variables needed to play the game
   gameMode = {};
   timer;
-  test = "Update?";
-  word;
+  //variables for getting the range of the API for calling
+  min = 10;
+  max = 11;
   //injection for the gameinfoservice and the activated route to send info
   constructor(private route: ActivatedRoute, private gameInfo: GameInfoService) {}
 
@@ -27,6 +28,9 @@ export class GamePage implements OnInit {
     //now gameMode knows the game information
     //get the timer information
     this.timer = this.route.snapshot.paramMap.get('timer');
+
+    //initially load a word
+    this.call(this.gameMode['api']); 
   }
 
   //call the selected API to get a random word from it
@@ -35,11 +39,13 @@ export class GamePage implements OnInit {
     xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         var word = JSON.parse(this.responseText);
-        document.getElementById('test').innerHTML = word;
+        document.getElementById('test').innerHTML = word['name'].split(' ')[0]; //just get one word for them to spell
+        console.log(word['name']);
       }
     };
-
-    xmlhttp.open("GET", apiLink, true);
+    //random number for api call
+    var end = Math.floor(Math.random() * 264) + 1; 
+    xmlhttp.open("GET", apiLink + end, true);
     xmlhttp.send();
   }
 

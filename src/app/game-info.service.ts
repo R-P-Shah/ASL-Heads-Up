@@ -7,19 +7,22 @@ import { Injectable } from '@angular/core';
 //passes along gameMode data, kind of like the CalcApp exercise
 export class GameInfoService {
 
+
   //gameModes array holding all the different game difficulties
   //made so I can add more later
   private gameModes = 
   [
     {
       difficulty: "Easy",
-      description: "Dog Breeds",
-      api: "Dogs"
+      description: "Places in NY",
+      api: "http://api.zippopotam.us/us/",
+      range: "10001-11104"
     },
     {
       difficulty: "Medium",
-      description: "Country Capitals",
-      api: "Countries"
+      description: "Dog Breeds",
+      api: "https://api.thedogapi.com/v1/breeds/", //link for API
+      range: "1-264"
     }
   ];
 
