@@ -24,9 +24,9 @@ export class AppComponent {
       icon: 'list'
     },
     {
-      title: 'Settings',
-      url: '/settings',
-      icon: 'settings'
+      title: 'About',
+      url: '/about',
+      icon: 'information-circle-outline'
     }
   ];
 

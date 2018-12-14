@@ -57,13 +57,11 @@ export class GamePage implements OnInit {
     xmlhttp.send();
   }
 
-  //wrapper function for the right/wrong buttons
+  //wrapper functions for the right/wrong buttons
   right(){
     this.correct++;
     this.call(this.gameMode);
   }
-
-  //wrapper function for the right/wrong buttons
   wrong(){
     this.incorrect++;
     this.call(this.gameMode);
@@ -89,10 +87,11 @@ export class GamePage implements OnInit {
     
   };
 
+  //alert at end of game tells the score
   async presentAlert() {
     const alert = await this.alertController.create({
-      header: 'TIME IS UP!!',
-      message: 'CORRECT: ' + this.correct + ", \n INCORRECT: " + this.incorrect,
+      header: 'TIME IS UP!',
+      message: '# Correct: ' + this.correct + ", # Incorrect: " + this.incorrect,
       buttons: ['OK']
     });
 

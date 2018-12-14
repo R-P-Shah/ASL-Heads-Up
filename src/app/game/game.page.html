@@ -28,6 +28,8 @@
   <ion-button color = "danger" (click) = wrong() >Wrong</ion-button>
   <ion-button color = "secondary" (click) = right()>Correct</ion-button>
 
-  <ion-label *ngIf="currentTime === 0">DONE!</ion-label> 
+  <div></div>
+
+  <ion-button color = "danger" *ngIf="currentTime === 0" routerLink="/list">EXIT</ion-button> 
 
 </ion-content>

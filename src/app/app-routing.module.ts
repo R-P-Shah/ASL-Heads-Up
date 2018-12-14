@@ -16,13 +16,10 @@ const routes: Routes = [
     loadChildren: './list/list.module#ListPageModule'
   },
   { 
-    path: 'settings', 
-    loadChildren: './settings/settings.module#SettingsPageModule' 
-  },
-  { 
     path: 'game/:difficulty/:timer/', 
     loadChildren: './game/game.module#GamePageModule' 
-  }
+  },
+  { path: 'about', loadChildren: './about/about.module#AboutPageModule' }
 ];
 
 @NgModule({
