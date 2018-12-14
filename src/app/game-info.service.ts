@@ -14,15 +14,21 @@ export class GameInfoService {
   [
     {
       difficulty: "Easy",
-      description: "Places in NY",
-      api: "http://api.zippopotam.us/us/",
-      range: "10001-11104"
+      description: "Colors",
+      api: "http://www.thecolorapi.com/id?hex=",
+      max: "999999", //max value for the api
+      recall: function(word): any{ //how the api needs to be called to get the right data
+        return word['name']['value']; 
+      }
     },
     {
       difficulty: "Medium",
       description: "Dog Breeds",
       api: "https://api.thedogapi.com/v1/breeds/", //link for API
-      range: "1-264"
+      max: "246", //max value for the api
+      recall: function(word): any{ //how the api needs to be called to get the right data
+        return word['name'];
+      }
     }
   ];
 

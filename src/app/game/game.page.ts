@@ -30,22 +30,21 @@ export class GamePage implements OnInit {
     this.timer = this.route.snapshot.paramMap.get('timer');
 
     //initially load a word
-    this.call(this.gameMode['api']); 
+    this.call(this.gameMode); 
   }
 
   //call the selected API to get a random word from it
-  call(apiLink) {
+  call(game) {
     var xmlhttp = new XMLHttpRequest();;
     xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
+      if (this.readyState == 4 && this.status == 200) {
         var word = JSON.parse(this.responseText);
-        document.getElementById('test').innerHTML = word['name'].split(' ')[0]; //just get one word for them to spell
-        console.log(word['name']);
+        document.getElementById('test').innerHTML = game.recall(word); 
       }
     };
     //random number for api call
-    var end = Math.floor(Math.random() * 264) + 1; 
-    xmlhttp.open("GET", apiLink + end, true);
+    var end = Math.floor(Math.random() * game['max']) + 1; //hardcoded range
+    xmlhttp.open("GET", game['api'] + end, true);
     xmlhttp.send();
   }
 
