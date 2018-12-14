@@ -18,7 +18,7 @@ export class GameInfoService {
       api: "http://www.thecolorapi.com/id?hex=",
       max: "999999", //max value for the api
       recall: function(word): any{ //how the api needs to be called to get the right data
-        return word['name']['value']; 
+        return word['name']['value'].split(' ')[0]; //only return first word, two is hard to fingerspell 
       }
     },
     {
@@ -27,7 +27,7 @@ export class GameInfoService {
       api: "https://api.thedogapi.com/v1/breeds/", //link for API
       max: "246", //max value for the api
       recall: function(word): any{ //how the api needs to be called to get the right data
-        return word['name'];
+        return word['name'].split(' ')[0]; //only return first word, two is hard to fingerspell 
       }
     }
   ];

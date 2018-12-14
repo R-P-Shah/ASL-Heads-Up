@@ -12,6 +12,8 @@ export class GamePage implements OnInit {
   //Variables needed to play the game
   gameMode = {};
   timer;
+  currentTime = 0;
+  quit = false; //user ended session, stops timer
   //variables for getting the range of the API for calling
   min = 10;
   max = 11;
@@ -20,6 +22,7 @@ export class GamePage implements OnInit {
 
   ngOnInit() {
     this.getGameMode();
+    this.startTimer(this.timer);
   }
 
   getGameMode(){
@@ -39,7 +42,7 @@ export class GamePage implements OnInit {
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         var word = JSON.parse(this.responseText);
-        document.getElementById('test').innerHTML = game.recall(word); 
+        document.getElementById('test').innerHTML = game.recall(word); //digs out the word I want from the api using the method inside the game mode object
       }
     };
     //random number for api call
@@ -48,6 +51,18 @@ export class GamePage implements OnInit {
     xmlhttp.send();
   }
 
+  startTimer(seconds){
+    this.currentTime = seconds;
+    //timer runs for given time
+    var interval = setInterval(() => {
+      console.log(this.currentTime);
+      this.currentTime--;
+      if(this.currentTime <= 0 || this.quit===true){ //time's up!
+        clearInterval(interval);
+        console.log('Ding!');
+      };
+    }, 1000);
+  };
 
 
   //this is bad practice I know, but I didn't have much time

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button color="danger" routerLink="/list">End</ion-button>
+      <ion-button color="danger" routerLink="/list" (click) = "quit = true;">End</ion-button>
     </ion-buttons>
     <ion-title>
       Head's Up! {{gameMode.difficulty}} Mode
@@ -11,10 +11,20 @@
 
 <ion-content padding>
 
-  <ion-label id="test">
-    API: 
+  <ion-label>
+    {{currentTime}}
   </ion-label>
 
+  <div>
+
+  </div>
+
+  <ion-label id="test">
+    Loading... 
+  </ion-label>
+  <div>
+
+  </div>
   <ion-button (click) = call(gameMode)>
     Update
   </ion-button>
