@@ -19,9 +19,9 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
+      title: 'Games',
       url: '/list',
-      icon: 'list'
+      icon: 'logo-game-controller-b'
     },
     {
       title: 'About',

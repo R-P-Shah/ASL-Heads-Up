@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { GameInfoService } from '../game-info.service';
 import { AlertController } from '@ionic/angular';
 
+
+
 @Component({
   selector: 'app-game',
   templateUrl: './game.page.html',
@@ -30,6 +32,10 @@ export class GamePage implements OnInit {
     this.getGameMode();
     this.startTimer(this.timer);
   }
+
+  
+
+  
 
   getGameMode(){
     const gameDiff = this.route.snapshot.paramMap.get('difficulty');
