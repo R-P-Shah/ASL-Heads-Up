@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GameInfoService } from '../game-info.service';
 import { AlertController } from '@ionic/angular';
-
+//cordova plugin
+import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native/gyroscope/ngx';
 
 
 @Component({
@@ -23,14 +24,36 @@ export class GamePage implements OnInit {
   //score variables
   correct = 0;
   incorrect = 0;
-
   //injection for the gameinfoservice and the activated route to send info
   //injection for alert to let user know when game is over
-  constructor(private route: ActivatedRoute, private gameInfo: GameInfoService, public alertController: AlertController) {}
+  constructor(private route: ActivatedRoute, private gameInfo: GameInfoService, public alertController: AlertController, private gyroscope: Gyroscope) {}
 
   ngOnInit() {
     this.getGameMode();
     this.startTimer(this.timer);
+
+    //now watch for gyroscope
+    let options: GyroscopeOptions = {
+      frequency: 1000
+    };
+
+    this.gyroscope.getCurrent(options)
+    .then((orientation: GyroscopeOrientation) => {
+      if(orientation.z <= -9){
+        //user was wrong
+        this.wrong();
+      }else if(orientation.z >= 9){
+        //user was right
+        this.right();
+      }
+    })
+    .catch()
+
+
+    this.gyroscope.watch()
+    .subscribe((orientation: GyroscopeOrientation) => {
+        console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
+    });
   }
 
   
@@ -54,7 +77,7 @@ export class GamePage implements OnInit {
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         var word = JSON.parse(this.responseText);
-        document.getElementById('test').innerHTML = game.recall(word); //digs out the word I want from the api using the method inside the game mode object
+        document.getElementById('word').innerHTML = game.recall(word); //digs out the word I want from the api using the method inside the game mode object
       }
     };
     //random number for api call
