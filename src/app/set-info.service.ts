@@ -69,7 +69,7 @@ export class SetInfoService {
     //get all sets to make sure we get a set if has same name as a class
     var sets = this.allSets.filter(items => {return items.iconType === 'albums'});
     //now get the set named after the title
-    return sets[title];
+    return sets.find(mySet => mySet.title === title);
   }
 
 }
