@@ -22,7 +22,6 @@ export class SetPage implements OnInit {
     //now get the actual vocab set
     this.vocabList = this.setInfo.getSetByTitle(this.title).items;
     console.log(this.vocabList);
-
   }
 
 

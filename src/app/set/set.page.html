@@ -11,4 +11,10 @@
 
 <ion-content padding>
 
+  <ion-card *ngFor="let v of vocabList">
+    <ion-card-content>
+      {{v.vocab}}
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
