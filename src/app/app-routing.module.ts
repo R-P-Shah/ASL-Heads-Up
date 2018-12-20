@@ -19,7 +19,8 @@ const routes: Routes = [
     path: 'game/:difficulty/:timer/', 
     loadChildren: './game/game.module#GamePageModule' 
   },
-  { path: 'about', loadChildren: './about/about.module#AboutPageModule' }
+  { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
+  { path: 'sets', loadChildren: './sets/sets.module#SetsPageModule' }
 ];
 
 @NgModule({
