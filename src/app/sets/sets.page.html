@@ -16,8 +16,19 @@
         <ion-icon slot="start" [name]="s.iconType"></ion-icon>
         <strong>{{s.title}}</strong>
         items: {{s.items.length}}
-        <ion-icon name="arrow-forward" item-right ></ion-icon>
+        <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
     </ion-card-content>
   </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="top">
+      <ion-fab-button><ion-icon name="albums">Create a Set</ion-icon></ion-fab-button>
+      <ion-fab-button><ion-icon name="folder">Create a Folder</ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 
 </ion-content>

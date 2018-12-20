@@ -20,7 +20,9 @@ const routes: Routes = [
     loadChildren: './game/game.module#GamePageModule' 
   },
   { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
-  { path: 'sets', loadChildren: './sets/sets.module#SetsPageModule' }
+  { path: 'sets', loadChildren: './sets/sets.module#SetsPageModule' },
+  { path: 'set', loadChildren: './set/set.module#SetPageModule' },
+  { path: 'class', loadChildren: './class/class.module#ClassPageModule' }
 ];
 
 @NgModule({
