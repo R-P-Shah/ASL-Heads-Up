@@ -56,9 +56,9 @@ export class GamePage implements OnInit {
     });
   }
 
-  
 
-  
+
+
 
   getGameMode(){
     const gameDiff = this.route.snapshot.paramMap.get('difficulty');
@@ -68,7 +68,7 @@ export class GamePage implements OnInit {
     this.timer = this.route.snapshot.paramMap.get('timer');
 
     //initially load a word
-    this.call(this.gameMode); 
+    this.call(this.gameMode);
   }
 
   //call the selected API to get a random word from it
@@ -109,11 +109,11 @@ export class GamePage implements OnInit {
         if(this.quit!== true){
             this.presentAlert();
         }
-        
+
       };
     }, 1000);
 
-    
+
   };
 
   //alert at end of game tells the score

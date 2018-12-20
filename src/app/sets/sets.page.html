@@ -11,7 +11,8 @@
 
 <ion-content padding>
 
-  <ion-card *ngFor='let s of allSets' routerLink='/home'>
+  <!-- List of sets/folders-->
+  <ion-card *ngFor='let s of allSets' routerLink='/set/{{s.title}}'>
     <ion-card-content>
         <ion-icon slot="start" [name]="s.iconType"></ion-icon>
         <strong>{{s.title}}</strong>
@@ -20,14 +21,25 @@
     </ion-card-content>
   </ion-card>
 
+  <!-- FAB -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
 
     <ion-fab-list side="top">
-      <ion-fab-button><ion-icon name="albums">Create a Set</ion-icon></ion-fab-button>
-      <ion-fab-button><ion-icon name="folder">Create a Folder</ion-icon></ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="albums"></ion-icon>
+      </ion-fab-button>
+
+      <ion-label>Create a Set</ion-label>
+
+      <ion-fab-button>
+        <ion-icon name="folder"></ion-icon>
+      </ion-fab-button>
+
+      <ion-label>Create a Set</ion-label>
+
     </ion-fab-list>
   </ion-fab>
 
