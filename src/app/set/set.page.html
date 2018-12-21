@@ -4,7 +4,7 @@
       <ion-icon name='ios-arrow-back'></ion-icon>
     </ion-buttons>
     <ion-title>
-      {{title}}
+      <ion-input placeholder="{{title}}" [(ngModel)] = "title"></ion-input>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,7 +13,7 @@
 
   <ion-card *ngFor="let v of vocabList">
     <ion-card-content>
-      {{v.vocab}}
+      <ion-label>{{v.vocab}}</ion-label>
     </ion-card-content>
   </ion-card>
 
